@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adammaksAI - Архитектор Цифровой Реальности</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)' },
+                            '100%': { boxShadow: '0 0 30px rgba(59, 130, 246, 0.8)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            backdrop-filter: blur(16px) saturate(180%);
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .space-bg {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Космический фон -->
+    <div class="space-bg">
+        <div class="star" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="star" style="top: 40%; left: 80%; animation-delay: 1s;"></div>
+        <div class="star" style="top: 60%; left: 30%; animation-delay: 2s;"></div>
+        <div class="star" style="top: 80%; left: 70%; animation-delay: 0.5s;"></div>
+        <div class="star" style="top: 30%; left: 50%; animation-delay: 1.5s;"></div>
+        <div class="star" style="top: 70%; left: 20%; animation-delay: 2.5s;"></div>
+    </div>
+
+    <!-- Навигация -->
+    <nav class="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 md:top-4 md:left-4 md:transform-none md:w-auto">
+        <div class="flex glass-card p-2">
+            <button onclick="showPage('home')" class="nav-btn px-4 py-2 rounded-xl transition-all duration-300 text-white hover:bg-white/20" id="nav-home">
+                🏠 Главная
+            </button>
+            <button onclick="showPage('portfolio')" class="nav-btn px-4 py-2 rounded-xl transition-all duration-300 text-white/70 hover:text-white hover:bg-white/10" id="nav-portfolio">
+                💼 Портфолио
+            </button>
+            <button onclick="showPage('about')" class="nav-btn px-4 py-2 rounded-xl transition-all duration-300 text-white/70 hover:text-white hover:bg-white/10" id="nav-about">
+                👤 Обо Мне
+            </button>
+            <button onclick="showPage('contact')" class="nav-btn px-4 py-2 rounded-xl transition-all duration-300 text-white/70 hover:text-white hover:bg-white/10" id="nav-contact">
+                📧 Связь
+            </button>
+        </div>
+    </nav>
+
+    <!-- Контент -->
+    <div class="min-h-screen flex flex-col items-center justify-center px-4">
+        <!-- Главная страница -->
+        <div id="home-page" class="page-content">
+            <div class="glass-card max-w-4xl mx-auto p-8 md:p-12 text-center mb-12">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-slide-up">
+                    adammaksAI
+                </h1>
+                <h2 class="text-xl md:text-2xl text-white/90 mb-8 animate-slide-up">
+                    Архитектор Цифровой Реальности
+                </h2>
+                <p class="text-lg text-white/80 mb-8 leading-relaxed animate-slide-up">
+                    Я использую Generative AI для создания проектов любой сложности: от фото и видео до масштабных интернет-магазинов и красивых сайтов-визиток.
+                </p>
+                <button onclick="showPage('contact')" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 animate-slide-up">
+                    Обсудить Ваш Проект
+                </button>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 text-center">
+                    <div class="text-4xl mb-4">📸</div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Генеративный Медиа-Контент</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Профессиональная генерация фото, видео, 3D-моделей и анимации с помощью ведущих AI-инструментов.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 text-center">
+                    <div class="text-4xl mb-4">🛒</div>
+                    <h3 class="text-xl font-semibold text-white mb-3">E-Commerce Проекты</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Создание полностью функциональных интернет-магазинов на React, оптимизированных AI.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 text-center">
+                    <div class="text-4xl mb-4">💻</div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Сайты-Визитки и Портфолио</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Элегантные, анимированные веб-приложения для вашего бренда, разработанные с учетом последних трендов.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Портфолио -->
+        <div id="portfolio-page" class="page-content hidden">
+            <div class="glass-card text-center p-8 mb-12 max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Мои Кейсы с AI-Акселерацией</h1>
+                <p class="text-white/70 text-lg">Проекты, созданные с использованием передовых AI-технологий</p>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card p-6">
+                    <div class="w-full h-48 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-xl mb-4 flex items-center justify-center">
+                        <div class="text-6xl">🎨</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">UI/UX-Прототип с ChatGPT</h3>
+                    <p class="text-white/70 text-sm">Интерактивный прототип мобильного приложения</p>
+                </div>
+
+                <div class="glass-card p-6">
+                    <div class="w-full h-48 bg-gradient-to-br from-green-500/20 to-blue-600/20 rounded-xl mb-4 flex items-center justify-center">
+                        <div class="text-6xl">🎬</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Рекламный Ролик с Runway Gen-2</h3>
+                    <p class="text-white/70 text-sm">Креативная видеореклама для бренда</p>
+                </div>
+
+                <div class="glass-card p-6">
+                    <div class="w-full h-48 bg-gradient-to-br from-purple-500/20 to-pink-600/20 rounded-xl mb-4 flex items-center justify-center">
+                        <div class="text-6xl">🎯</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">AI-Ребрендинг (Midjourney + Photoshop)</h3>
+                    <p class="text-white/70 text-sm">Полное обновление визуальной идентичности</p>
+                </div>
+
+                <div class="glass-card p-6">
+                    <div class="w-full h-48 bg-gradient-to-br from-orange-500/20 to-red-600/20 rounded-xl mb-4 flex items-center justify-center">
+                        <div class="text-6xl">📝</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Персонализированный Блог на React</h3>
+                    <p class="text-white/70 text-sm">Современная платформа для контента</p>
+                </div>
+
+                <div class="glass-card p-6">
+                    <div class="w-full h-48 bg-gradient-to-br from-teal-500/20 to-green-600/20 rounded-xl mb-4 flex items-center justify-center">
+                        <div class="text-6xl">🛍️</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">E-Commerce с AI-Рекомендациями</h3>
+                    <p class="text-white/70 text-sm">Интернет-магазин с умными предложениями</p>
+                </div>
+
+                <div class="glass-card p-6">
+                    <div class="w-full h-48 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-xl mb-4 flex items-center justify-center">
+                        <div class="text-6xl">🏗️</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">3D-Визуализация с DALL-E</h3>
+                    <p class="text-white/70 text-sm">Архитектурные визуализации для презентаций</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Обо Мне -->
+        <div id="about-page" class="page-content hidden">
+            <div class="glass-card text-center p-8 mb-12 max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">adammaks: Философия Мастерства</h1>
+            </div>
+
+            <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="glass-card p-8">
+                    <div class="w-48 h-48 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
+                        <div class="text-8xl">👨‍💻</div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8">
+                    <h2 class="text-2xl font-semibold text-white mb-6">Мой Подход к AI</h2>
+                    <p class="text-white/80 leading-relaxed mb-6">
+                        Я не просто использую ИИ; я интегрирую его как ключевой элемент в процесс создания. 
+                        Generative AI — это не замена таланта, а мощнейший ускоритель, позволяющий мне 
+                        достигать невероятной детализации и скорости, недоступной традиционным методам.
+                    </p>
+                    <p class="text-white/80 leading-relaxed">
+                        Ваша задача, выполненная мной, будет на 100% уникальной и технологичной. 
+                        Каждый проект — это синтез творческого видения и передовых технологий.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Связь -->
+        <div id="contact-page" class="page-content hidden">
+            <div class="glass-card text-center p-8 mb-12 max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Начнем Сотрудничество</h1>
+                <p class="text-white/70 text-lg">Готов обсудить ваш проект и воплотить идеи в жизнь</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="glass-card p-8">
+                    <h2 class="text-2xl font-semibold text-white mb-6">Отправить Запрос</h2>
+                    <form class="space-y-6">
+                        <div>
+                            <input type="text" placeholder="Ваше имя" class="w-full p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-blue-400 transition-colors">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" class="w-full p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-blue-400 transition-colors">
+                        </div>
+                        <div>
+                            <textarea placeholder="Расскажите о вашем проекте" rows="5" class="w-full p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-blue-400 transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+                            📤 Отправить Запрос
+                        </button>
+                    </form>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="glass-card p-8">
+                        <h3 class="text-xl font-semibold text-white mb-4">Социальные Сети</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white hover:bg-white/20 transition-all duration-300">
+                                <div class="text-2xl">💬</div>
+                                <span>Telegram</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white hover:bg-white/20 transition-all duration-300">
+                                <div class="text-2xl">📷</div>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white hover:bg-white/20 transition-all duration-300">
+                                <div class="text-2xl">📧</div>
+                                <span>Email</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(page) {
+            // Скрыть все страницы
+            document.querySelectorAll('.page-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // Показать выбранную страницу
+            document.getElementById(page + '-page').classList.remove('hidden');
+            
+            // Обновить навигацию
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-white/20', 'text-white');
+                btn.classList.add('text-white/70');
+            });
+            
+            document.getElementById('nav-' + page).classList.remove('text-white/70');
+            document.getElementById('nav-' + page).classList.add('bg-white/20', 'text-white');
+        }
+        
+        // Показать главную страницу по умолчанию
+        showPage('home');
+    </script>
+</body>
+</html>

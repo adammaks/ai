@@ -31,6 +31,31 @@ npm run dev
 
 3. Откройте браузер по адресу `http://localhost:3000`
 
+## Деплой на GitHub Pages
+
+### Автоматический деплой (рекомендуется)
+
+1. Создайте репозиторий на GitHub
+2. Загрузите код в репозиторий:
+```bash
+git add .
+git commit -m "Initial commit"
+git push origin main
+```
+
+3. В настройках репозитория включите GitHub Pages:
+   - Перейдите в Settings → Pages
+   - Source: GitHub Actions
+   - Workflow автоматически запустится при push в main
+
+### Ручной деплой
+
+```bash
+npm run deploy
+```
+
+Сайт будет доступен по адресу: `https://yourusername.github.io/repository-name`
+
 ## Структура проекта
 
 - `src/App.jsx` - Главный компонент с роутингом и всеми страницами

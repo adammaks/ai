@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>adammaksAI - Архитектор Цифровой Реальности</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-bg: #0a0a0a;
-            --secondary-bg: #111111;
-            --accent-purple: #8b5cf6;
-            --accent-blue: #06b6d4;
-            --accent-pink: #ec4899;
-            --accent-green: #10b981;
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #ff6b35;
+            --accent-light: #ff8c69;
+            --accent-dark: #e55a2b;
             --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
-            --border-color: #27272a;
-            --glass-bg: rgba(255, 255, 255, 0.05);
+            --text-secondary: #b3b3b3;
+            --text-muted: #666666;
+            --border: #333333;
+            --glass: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
+            --gradient-1: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            --gradient-2: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
 
         * {
@@ -29,14 +31,14 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--primary-bg);
+            background: var(--primary);
             color: var(--text-primary);
-            overflow-x: hidden;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Футуристический фон */
-        .cyber-bg {
+        /* Современный фон */
+        .modern-bg {
             position: fixed;
             top: 0;
             left: 0;
@@ -44,34 +46,14 @@
             height: 100%;
             z-index: -2;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.05) 0%, transparent 50%),
-                linear-gradient(135deg, #0a0a0a 0%, #111111 100%);
+                radial-gradient(circle at 20% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(240, 147, 251, 0.05) 0%, transparent 50%),
+                var(--primary);
         }
 
-        /* Анимированная сетка */
-        .grid-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: 
-                linear-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: grid-move 20s linear infinite;
-        }
-
-        @keyframes grid-move {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        /* Плавающие частицы */
-        .particles {
+        /* Геометрические элементы */
+        .geometric-shapes {
             position: fixed;
             top: 0;
             left: 0;
@@ -81,61 +63,52 @@
             pointer-events: none;
         }
 
-        .particle {
+        .shape {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--accent-purple);
-            border-radius: 50%;
-            animation: float-particle 15s infinite linear;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
         }
 
-        @keyframes float-particle {
-            0% {
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px);
-                opacity: 0;
-            }
-        }
-
-        /* Неоновые линии */
-        .neon-line {
-            position: fixed;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-purple), transparent);
-            animation: neon-sweep 8s infinite;
-            z-index: -1;
-        }
-
-        .neon-line:nth-child(1) {
-            top: 20%;
-            width: 100%;
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-1);
+            border-radius: 20px;
+            top: 10%;
+            left: 10%;
             animation-delay: 0s;
         }
 
-        .neon-line:nth-child(2) {
+        .shape-2 {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-2);
+            border-radius: 50%;
             top: 60%;
-            width: 100%;
-            animation-delay: 2s;
+            right: 15%;
+            animation-delay: 5s;
         }
 
-        @keyframes neon-sweep {
-            0%, 100% { opacity: 0; transform: scaleX(0); }
-            50% { opacity: 1; transform: scaleX(1); }
+        .shape-3 {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-3);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            top: 30%;
+            right: 30%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(90deg); }
+            50% { transform: translateY(0px) rotate(180deg); }
+            75% { transform: translateY(20px) rotate(270deg); }
         }
 
         /* Контейнер */
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -143,57 +116,74 @@
         /* Навигация */
         .nav {
             position: fixed;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
-            display: flex;
-            gap: 1rem;
-            background: var(--glass-bg);
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
-            padding: 0.5rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
         }
 
-        .nav-item {
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            background: transparent;
-            border: none;
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
             color: var(--text-secondary);
+            text-decoration: none;
             font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
         }
 
-        .nav-item::before {
+        .nav-link::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link:hover::after {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
         }
 
-        .nav-item:hover::before {
-            left: 100%;
-        }
-
-        .nav-item.active {
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+        .nav-link.active {
             color: var(--text-primary);
-            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
         }
 
-        .nav-item:hover {
-            color: var(--text-primary);
-            transform: translateY(-2px);
+        .nav-link.active::after {
+            width: 100%;
         }
 
         /* Секции */
@@ -201,8 +191,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 8rem 0 4rem;
+            padding: 6rem 0 4rem;
             position: relative;
         }
 
@@ -216,120 +205,140 @@
             position: relative;
         }
 
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 8rem);
-            font-weight: 900;
-            line-height: 0.9;
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--accent);
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-purple) 50%, var(--accent-blue) 100%);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: title-glow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes title-glow {
-            0% { filter: brightness(1); }
-            100% { filter: brightness(1.2); }
         }
 
         .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             color: var(--text-secondary);
             margin-bottom: 3rem;
-            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .cta-button {
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-            color: var(--text-primary);
-            text-decoration: none;
+            padding: 1rem 2rem;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.3);
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
+        .btn-primary {
+            background: var(--gradient-1);
+            color: var(--text-primary);
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3);
         }
 
-        .cta-button:hover::before {
-            left: 100%;
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.4);
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 40px rgba(139, 92, 246, 0.4);
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border);
         }
 
-        /* Карточки возможностей */
-        .capabilities {
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Карточки услуг */
+        .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 4rem;
         }
 
-        .capability-card {
-            background: var(--glass-bg);
+        .service-card {
+            background: var(--glass);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
             padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .capability-card::before {
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue), var(--accent-pink));
+            height: 3px;
+            background: var(--gradient-1);
             transform: scaleX(0);
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
         }
 
-        .capability-card:hover::before {
+        .service-card:hover::before {
             transform: scaleX(1);
         }
 
-        .capability-card:hover {
+        .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            border-color: var(--accent-purple);
+            border-color: var(--accent);
         }
 
-        .capability-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .capability-title {
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.5rem;
-            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 600;
             margin-bottom: 1rem;
             color: var(--text-primary);
         }
 
-        .capability-desc {
+        .service-desc {
             color: var(--text-secondary);
             line-height: 1.6;
         }
@@ -337,29 +346,29 @@
         /* Портфолио */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
         .portfolio-item {
-            background: var(--glass-bg);
+            background: var(--glass);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s ease;
             position: relative;
         }
 
         .portfolio-item:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-10px);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
         }
 
         .portfolio-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            height: 250px;
+            background: var(--gradient-1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -375,7 +384,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             animation: shimmer 3s infinite;
         }
 
@@ -399,6 +408,22 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
             line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent);
         }
 
         /* Обо мне */
@@ -412,7 +437,7 @@
         .about-image {
             width: 100%;
             height: 400px;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            background: var(--gradient-1);
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -438,26 +463,27 @@
             100% { transform: translateX(100%); }
         }
 
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
         .about-text h2 {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--text-primary);
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            background: var(--gradient-1);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
         /* Контакты */
         .contact-form {
-            background: var(--glass-bg);
+            background: var(--glass);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
@@ -478,13 +504,13 @@
             border-radius: 10px;
             color: var(--text-primary);
             font-size: 1rem;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .form-input:focus {
             outline: none;
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
         }
 
         .form-input::placeholder {
@@ -498,21 +524,12 @@
 
         /* Адаптивность */
         @media (max-width: 768px) {
-            .nav {
-                top: 1rem;
-                left: 1rem;
-                right: 1rem;
-                transform: none;
-                justify-content: center;
-            }
-
-            .nav-item {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
+            .nav-links {
+                display: none;
             }
 
             .section {
-                padding: 6rem 0 2rem;
+                padding: 4rem 0 2rem;
             }
 
             .about-content {
@@ -520,12 +537,17 @@
                 gap: 2rem;
             }
 
-            .capabilities {
+            .services {
                 grid-template-columns: 1fr;
             }
 
             .portfolio-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -549,47 +571,56 @@
     </style>
 </head>
 <body>
-    <!-- Футуристический фон -->
-    <div class="cyber-bg"></div>
-    <div class="grid-overlay"></div>
-    <div class="particles" id="particles"></div>
-    <div class="neon-line"></div>
-    <div class="neon-line"></div>
+    <!-- Современный фон -->
+    <div class="modern-bg"></div>
+    <div class="geometric-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
 
     <!-- Навигация -->
     <nav class="nav">
-        <button class="nav-item active" data-section="home">Главная</button>
-        <button class="nav-item" data-section="portfolio">Портфолио</button>
-        <button class="nav-item" data-section="about">Обо Мне</button>
-        <button class="nav-item" data-section="contact">Связь</button>
+        <div class="nav-content">
+            <div class="logo">adammaksAI</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" data-section="home">Главная</a></li>
+                <li><a href="#portfolio" class="nav-link" data-section="portfolio">Портфолио</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">Обо Мне</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Связь</a></li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Главная секция -->
     <section id="home" class="section">
         <div class="container">
             <div class="hero">
-                <h1 class="hero-title fade-in">adammaksAI</h1>
-                <p class="hero-subtitle fade-in fade-in-delay-1">Архитектор Цифровой Реальности</p>
-                <p class="hero-subtitle fade-in fade-in-delay-2">Я использую Generative AI для создания проектов любой сложности: от фото и видео до масштабных интернет-магазинов и красивых сайтов-визиток.</p>
-                <a href="#contact" class="cta-button fade-in fade-in-delay-3">Обсудить Ваш Проект</a>
+                <div class="hero-badge fade-in">✨ AI-Powered Solutions</div>
+                <h1 class="hero-title fade-in">Архитектор Цифровой Реальности</h1>
+                <p class="hero-subtitle fade-in fade-in-delay-1">Я использую Generative AI для создания проектов любой сложности: от фото и видео до масштабных интернет-магазинов и красивых сайтов-визиток.</p>
+                <div class="cta-buttons fade-in fade-in-delay-2">
+                    <a href="#contact" class="btn btn-primary">Обсудить Проект</a>
+                    <a href="#portfolio" class="btn btn-secondary">Посмотреть Работы</a>
+                </div>
                 
-                <div class="capabilities">
-                    <div class="capability-card fade-in fade-in-delay-1">
-                        <span class="capability-icon">🎨</span>
-                        <h3 class="capability-title">Генеративный Медиа-Контент</h3>
-                        <p class="capability-desc">Профессиональная генерация фото, видео, 3D-моделей и анимации с помощью ведущих AI-инструментов.</p>
+                <div class="services">
+                    <div class="service-card fade-in fade-in-delay-1">
+                        <div class="service-icon">🎨</div>
+                        <h3 class="service-title">Генеративный Медиа-Контент</h3>
+                        <p class="service-desc">Профессиональная генерация фото, видео, 3D-моделей и анимации с помощью ведущих AI-инструментов.</p>
                     </div>
                     
-                    <div class="capability-card fade-in fade-in-delay-2">
-                        <span class="capability-icon">🛒</span>
-                        <h3 class="capability-title">E-Commerce Проекты</h3>
-                        <p class="capability-desc">Создание полностью функциональных интернет-магазинов на React, оптимизированных AI.</p>
+                    <div class="service-card fade-in fade-in-delay-2">
+                        <div class="service-icon">🛒</div>
+                        <h3 class="service-title">E-Commerce Проекты</h3>
+                        <p class="service-desc">Создание полностью функциональных интернет-магазинов на React, оптимизированных AI.</p>
                     </div>
                     
-                    <div class="capability-card fade-in fade-in-delay-3">
-                        <span class="capability-icon">💻</span>
-                        <h3 class="capability-title">Сайты-Визитки и Портфолио</h3>
-                        <p class="capability-desc">Элегантные, анимированные веб-приложения для вашего бренда, разработанные с учетом последних трендов.</p>
+                    <div class="service-card fade-in fade-in-delay-3">
+                        <div class="service-icon">💻</div>
+                        <h3 class="service-title">Сайты-Визитки и Портфолио</h3>
+                        <p class="service-desc">Элегантные, анимированные веб-приложения для вашего бренда, разработанные с учетом последних трендов.</p>
                     </div>
                 </div>
             </div>
@@ -609,6 +640,11 @@
                         <div class="portfolio-content">
                             <h3 class="portfolio-title">UI/UX-Прототип с ChatGPT</h3>
                             <p class="portfolio-desc">Интерактивный прототип мобильного приложения с AI-генерированным контентом</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Figma</span>
+                                <span class="tag">ChatGPT</span>
+                                <span class="tag">UI/UX</span>
+                            </div>
                         </div>
                     </div>
                     
@@ -617,6 +653,11 @@
                         <div class="portfolio-content">
                             <h3 class="portfolio-title">Рекламный Ролик с Runway Gen-2</h3>
                             <p class="portfolio-desc">Креативная видеореклама для бренда с использованием генеративного AI</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Runway</span>
+                                <span class="tag">Video</span>
+                                <span class="tag">AI</span>
+                            </div>
                         </div>
                     </div>
                     
@@ -625,6 +666,11 @@
                         <div class="portfolio-content">
                             <h3 class="portfolio-title">AI-Ребрендинг (Midjourney + Photoshop)</h3>
                             <p class="portfolio-desc">Полное обновление визуальной идентичности с помощью AI-инструментов</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">Midjourney</span>
+                                <span class="tag">Photoshop</span>
+                                <span class="tag">Branding</span>
+                            </div>
                         </div>
                     </div>
                     
@@ -633,6 +679,11 @@
                         <div class="portfolio-content">
                             <h3 class="portfolio-title">Персонализированный Блог на React</h3>
                             <p class="portfolio-desc">Современная платформа для контента с AI-рекомендациями</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">AI</span>
+                                <span class="tag">Blog</span>
+                            </div>
                         </div>
                     </div>
                     
@@ -641,6 +692,11 @@
                         <div class="portfolio-content">
                             <h3 class="portfolio-title">E-Commerce с AI-Рекомендациями</h3>
                             <p class="portfolio-desc">Интернет-магазин с умными предложениями на основе машинного обучения</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">E-commerce</span>
+                                <span class="tag">ML</span>
+                                <span class="tag">React</span>
+                            </div>
                         </div>
                     </div>
                     
@@ -649,6 +705,11 @@
                         <div class="portfolio-content">
                             <h3 class="portfolio-title">3D-Визуализация с DALL-E</h3>
                             <p class="portfolio-desc">Архитектурные визуализации для презентаций с AI-генерацией</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">DALL-E</span>
+                                <span class="tag">3D</span>
+                                <span class="tag">Visualization</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -666,7 +727,6 @@
                 <div class="about-text fade-in fade-in-delay-1">
                     <h2>adammaks: Философия Мастерства</h2>
                     <p>Я не просто использую ИИ; я интегрирую его как ключевой элемент в процесс создания. Generative AI — это не замена таланта, а мощнейший ускоритель, позволяющий мне достигать невероятной детализации и скорости, недоступной традиционным методам.</p>
-                    <br>
                     <p>Ваша задача, выполненная мной, будет на 100% уникальной и технологичной. Каждый проект — это синтез творческого видения и передовых технологий, где AI становится моим творческим партнером, а не просто инструментом.</p>
                 </div>
             </div>
@@ -690,40 +750,26 @@
                     <div class="form-group">
                         <textarea class="form-input form-textarea" placeholder="Расскажите о вашем проекте" required></textarea>
                     </div>
-                    <button type="submit" class="cta-button">Отправить Запрос</button>
+                    <button type="submit" class="btn btn-primary">Отправить Запрос</button>
                 </form>
             </div>
         </div>
     </section>
 
     <script>
-        // Создание частиц
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-
         // Навигация
         function initNavigation() {
-            const navItems = document.querySelectorAll('.nav-item');
+            const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.section');
 
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    const targetSection = item.getAttribute('data-section');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetSection = link.getAttribute('data-section');
                     
                     // Обновляем активный элемент навигации
-                    navItems.forEach(nav => nav.classList.remove('active'));
-                    item.classList.add('active');
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    link.classList.add('active');
                     
                     // Показываем нужную секцию
                     sections.forEach(section => {
@@ -736,24 +782,31 @@
             });
         }
 
-        // Плавная прокрутка для CTA кнопки
+        // Плавная прокрутка для CTA кнопок
         function initSmoothScroll() {
-            const ctaButton = document.querySelector('.cta-button');
-            if (ctaButton) {
-                ctaButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const contactSection = document.getElementById('contact');
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Переключаем навигацию на контакты
-                    document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
-                    document.querySelector('[data-section="contact"]').classList.add('active');
-                    
-                    // Показываем секцию контактов
-                    document.querySelectorAll('.section').forEach(section => section.classList.add('hidden'));
-                    contactSection.classList.remove('hidden');
+            const ctaButtons = document.querySelectorAll('.btn');
+            
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const href = button.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetSection = document.querySelector(href);
+                        if (targetSection) {
+                            targetSection.scrollIntoView({ behavior: 'smooth' });
+                            
+                            // Переключаем навигацию
+                            const sectionId = href.substring(1);
+                            document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+                            document.querySelector(`[data-section="${sectionId}"]`).classList.add('active');
+                            
+                            // Показываем секцию
+                            document.querySelectorAll('.section').forEach(section => section.classList.add('hidden'));
+                            targetSection.classList.remove('hidden');
+                        }
+                    }
                 });
-            }
+            });
         }
 
         // Анимации при скролле
@@ -773,7 +826,6 @@
 
         // Инициализация
         document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
             initNavigation();
             initSmoothScroll();
             initScrollAnimations();
